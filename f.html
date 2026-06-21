@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+	<title>Fuck You</title>
+	<style>
+		@media (orientation:portrait) {
+			img {
+				width: 100vw;
+				height: 100vw;
+				top: calc((100vh - 100vw) / 2);
+			}
+		}
+		@media (orientation:landscape) {
+			img {
+				width: 100vh;
+				height: 100vh;
+				left: calc((100vw - 100vh) / 2);
+			}
+		}
+		img {
+			display: none;
+			position:fixed;
+		}
+		html, body {
+			width: 100vw;
+			height: 100vh;
+			background-color: black;
+			margin: 0;
+			padding: 0;
+		}
+	</style>
+</head>
+
+<body>
+	<img src="https://www.e1a.cc.cd/fuck_from_scan.png" id="zh">
+	<img src="https://www.e1a-en.cc.cd/fuck_from_scan.png" id="en">
+	<script>
+		if (navigator.language.startsWith ('zh')) {
+			document.getElementById("zh").style.display = "block"
+		} else {
+			document.getElementById("en").style.display = "block"
+		}
+	</script>
+</body>
+
+</html>
