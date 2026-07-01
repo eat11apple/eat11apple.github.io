@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+	width="960"
+	height="1020"
+	viewBox="0 0 960 1020">
+	<!-- 垃圾桶把手 -->
+	<path
+		d="M360 140 A120 120 0 0 1 600 140"
+		fill="none"
+		stroke="red"
+		stroke-width="40"
+		stroke-linecap="round" />
+	<!-- 桶盖外框 -->
+	<rect
+		x="60"
+		y="170"
+		width="840"
+		height="120"
+		rx="60"
+		fill="#fff"
+		stroke="red"
+		stroke-width="40" />
+	<!-- 桶盖中间横线 -->
+	<rect
+		x="90"
+		y="210"
+		width="780"
+		height="40"
+		fill="crimson" />
+	<!-- 桶身外轮廓 -->
+	<path
+		d="M120 290 L180 930 Q180 990 240 990 L720 990 Q780 990 780 930 L840 290 Z"
+		fill="#fff"
+		stroke="red"
+		stroke-width="40" />
+	<!-- 内层灰色边框 -->
+	<path
+		d="M210 320 L250 900 Q250 930 280 930 L680 930 Q710 930 710 900 L750 320 Z"
+		fill="#fff"
+		stroke="crimson"
+		stroke-width="30" />
+	<!-- 内部网格线 -->
+	<defs>
+		<pattern
+			id="grid"
+			width="30"
+			height="30">
+			<path
+				d="M 30 0 L 0 0 0 30"
+				fill="none"
+				stroke="orangered"
+				stroke-width="1" />
+		</pattern>
+	</defs>
+	<path
+		d="M225 335 L260 890 Q260 910 285 910 L675 910 Q705 910 705 890 L740 335 Z"
+		fill="url(#grid)" />
+	<!-- 三条竖条（同步加长匹配更高桶身） -->
+	<rect
+		x="345"
+		y="350"
+		width="36"
+		height="480"
+		rx="18"
+		fill="crimson" />
+	<rect
+		x="462"
+		y="350"
+		width="36"
+		height="480"
+		rx="18"
+		fill="crimson" />
+	<rect
+		x="579"
+		y="350"
+		width="36"
+		height="480"
+		rx="18"
+		fill="crimson" />
+</svg>
