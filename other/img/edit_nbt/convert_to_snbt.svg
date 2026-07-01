@@ -1,0 +1,12 @@
+<svg width="960" height="960" viewBox="0 0 960 960" xmlns="http://www.w3.org/2000/svg">
+  <!-- 红色外框与文件折角 -->
+  <path d="M0 0 L840 0 L960 120 L960 960 L0 960 Z" fill="#ff0000"/>
+  <!-- 青色文件主体 -->
+  <rect x="80" y="80" width="800" height="800" fill="#00eeee"/>
+  <!-- NBT文字 -->
+  <text x="150" y="270" font-family="Arial Black, sans-serif" font-size="130" fill="#ff0000">NBT</text>
+  <!-- 红色箭头 -->
+  <path d="M160 320 L460 320 L460 240 L580 360 L460 480 L460 400 L160 400 Z" fill="#ff0000"/>
+  <!-- SNBT大字 -->
+  <text x="100" y="740" font-family="Arial Black, sans-serif" font-size="290" fill="#ff0000">SNBT</text>
+</svg>

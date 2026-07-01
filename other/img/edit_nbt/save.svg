@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+	width="960"
+	height="960"
+	viewBox="0 0 960 960">
+	<!-- 软盘外框主体 -->
+	<path
+		d="M60 20 L820 20 L940 140 L940 940 L60 940 Z"
+		fill="purple"
+		stroke="aqua"
+		stroke-width="60"
+		stroke-linejoin="round" />
+	<!-- 右上角折角斜边 -->
+	<line
+		x1="820"
+		y1="20"
+		x2="940"
+		y2="140"
+		stroke="aqua"
+		stroke-width="60" />
+	<!-- 上方标签卡槽 -->
+	<rect
+		x="280"
+		y="20"
+		width="400"
+		height="260"
+		fill="purple"
+		stroke="aqua"
+		stroke-width="60"
+		rx="10" />
+	<rect
+		x="620"
+		y="20"
+		width="80"
+		height="260"
+		fill="purple"
+		stroke="aqua"
+		stroke-width="60" />
+	<!-- 下方记录区域外框 -->
+	<rect
+		x="180"
+		y="460"
+		width="600"
+		height="460"
+		fill="purple"
+		stroke="aqua"
+		stroke-width="60"
+		rx="100" />
+	<!-- 内部两条横线 -->
+	<rect
+		x="320"
+		y="600"
+		width="320"
+		height="60"
+		fill="aqua"
+		rx="30" />
+	<rect
+		x="320"
+		y="740"
+		width="320"
+		height="60"
+		fill="aqua"
+		rx="30" />
+</svg>
