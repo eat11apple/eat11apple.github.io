@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" height="200" width="200">
+	<rect
+		width="110"
+		height="110"
+		x="90"
+		y="90"
+		rx="20px"
+		fill="#fff"/>
+	<rect
+		width="110"
+		height="110"
+		rx="20px"
+		fill="#00a2ff"/>
+	<path 
+		d="M125 35 L165 35 L165 75"
+		stroke="#00a2ff"
+		fill-opacity="0"
+		stroke-width="20"/>
+	<path 
+		d="M75 165 L35 165 L35 125"
+		stroke="#fff"
+		fill-opacity="0"
+		stroke-width="20"/>
+	<text
+		font-family="Arial Black, sans-serif"
+		font-size="80"
+		fill="#fff"
+		x="15"
+		y="87">
+		中
+	</text>
+	<text
+		font-family="Arial Black, sans-serif"
+		font-size="90"
+		fill="#00a2ff"
+		x="118"
+		y="179">
+		A
+	</text>
+</svg>
