@@ -1,0 +1,642 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+	<meta charset="UTF-8">
+	<link rel="icon" href="http://www.e1a.cc.cd/other/img/smart_translator.svg">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+	<style>
+		* {
+			box-sizing: border-box;
+		}
+		body, html {
+			/* margin: 0; */
+			padding: 0;
+			color: white;
+			text-align: center;
+			font-size: 25px;
+			background-color: #000;
+			text-align-last: center;
+			overflow-x: hidden;
+		}
+		.decription {
+			width: 100%;
+			padding: 10px;
+			margin-top: 50px;
+			margin-top: 10px;
+			color: gray;
+			text-align: left;
+			text-align-last: auto;
+			font-size: 15px;
+		}
+		.decription_p {
+			margin-left: 10px;
+			display: flex;
+		}
+		.banner {
+			height: 50px;
+			width: 100%;
+			line-height: 50px;
+			overflow: hidden;
+			/* background-color: #222; */
+			display: flex;
+		}
+		.banner_title {
+			height: 50px;
+			font-size: 30px;
+			width: calc(100% - 100px);
+			text-align: center;
+			margin-right: 50px;
+		}
+		.back_home {
+			/* margin-left: 3px;
+			margin-right: 3px; */
+			color: white;
+			text-decoration: none;
+			font-size: 20px;
+			padding: auto;
+			width: 50px;
+		}
+		.back_home:hover {
+			background-color: #222;
+		}
+		.back_home:active {
+			background-color: #555;
+		}
+		.use_translator_select, .from_lang_select, .to_lang_select {
+			height: 50px;
+			font-size: 25px;
+			background-color: gray;
+			color: white;
+			margin-bottom: 10px;
+			border: 0px;
+		}
+		.use_translator_select {
+			margin-left: 20px;
+			margin-right: 20px;
+			width: calc(100% - 40px);
+		}
+		.from_lang_select {
+			margin-left: 0;
+			margin-right: 10px;
+			width: calc(50% - 30px);
+		}
+		.to_lang_select {
+			margin-left: 10;
+			margin-right: 0px;
+			width: calc(50% - 30px);
+		}
+		.input_text_box, .input_text {
+			font-size: 25px;
+			background-color: gray;
+			border: none;
+			color: white;
+			line-height: 30px;
+			text-align-last: auto;
+			text-align: left;
+		}
+		.input_text_box {
+			margin-left: 20px;
+			margin-right: 20px;
+			width: calc(100% - 40px);
+			margin-bottom: 10px;
+			border: 0px;
+			display: flex;
+			align-items: center;
+			max-height: 320px;
+			min-height: 50px;
+		}
+		.input_text {
+			width: calc(100% - 10px);
+			outline: none;
+			max-width: 100%;
+			box-shadow: none;
+			resize: none;
+			margin-top: 10px;
+			overflow-y: auto;
+			margin-bottom: 10px;
+			margin-left: 5px;
+			margin-right: 5px;
+			max-height: 300px;
+			min-height: 30px;
+			appearance: none;
+			-webkit-appearance: none;
+			-webkit-tap-highlight-color: transparent;
+			-webkit-overflow-scrolling: touch;
+		}
+		.input_text::placeholder {
+			text-align: left;
+			color: white;
+			opacity: 0.6;
+		}
+		.input_text::-moz-placeholder {
+			text-align: left;
+			color: white;
+			opacity: 0.6;
+		}
+		.input_text::-webkit-input-placeholder {
+			text-align: left;
+			color: white;
+			opacity: 0.6;
+		}
+		.input_text:-ms-input-placeholder {
+			text-align: left;
+			color: white;
+			opacity: 0.6;
+		}
+		.to_tranlate {
+			background-color: #0f0;
+			font-size: 25px;
+			color: black;
+			border-radius: 10px;
+			padding-left: 40px;
+		}
+		.input_text:-ms-input-placeholder {
+			text-align: left;
+			color: white;
+			opacity: 0.6;
+		}
+		.to_tranlate {
+			background-color: #0f0;
+			font-size: 25px;
+			color: black;
+			border-radius: 10px;
+			padding-left: 40px;
+			padding-right: 40px;
+			padding-top: 10px;
+			padding-bottom: 10px;
+			max-width: 100vw;
+			cursor: pointer;
+		}
+		.to_tranlate:active {
+			background-color: #0a0;
+		}
+		select {
+			cursor: pointer;
+			max-width: 100%;
+		}
+		.translate_tip {
+			width: 100%;
+			color: #0f0;
+			display: none;
+			font-size: 15px;
+			word-wrap: break-word;
+		}
+	</style>
+	<title>智慧翻译-买一个apple吃的网页</title>
+</head>
+
+<body>
+
+	<div class="banner">
+		<a href="https://eat11apple.github.io" class="back_home">&lt;</a>
+		<div class="banner_title">智慧翻译</div>
+	</div>
+
+	<div style="background-color: #333;width: 100vw;height: 5px;margin-bottom: 10px;">
+	</div>
+
+	翻译引擎
+	<br>
+	<select title="选择翻译引擎" class="use_translator_select" class="use_translator_select">
+		<option aria-label="Microsoft Translator" value="microsoft" selected="selected">Microsoft Translator</option>
+	</select>
+	<form action="https://bing.com/translator/">
+		<br>
+		<div style="display: flex;">
+			<div style="width: 50vw;">源语言</div>
+			<div style="width: 50vw;">译语言</div>
+		</div>
+		<select title="选择被翻译的语言类型" name="from" class="from_lang_select">
+			<option aria-label="自动选择" value="auto" selected="selected">自动选择</option>
+			<option aria-label="Arabic (Romanized)" value="arb">Arabic (Romanized)</option>
+			<option aria-label="Asturian" value="ast">Asturian</option>
+			<option aria-label="Balinese" value="ban">Balinese</option>
+			<option aria-label="Batak Toba" value="bbc">Batak Toba</option>
+			<option aria-label="Bhojpuri" value="bho">Bhojpuri</option>
+			<option aria-label="Bikol" value="bik">Bikol</option>
+			<option aria-label="Bodo" value="brx">Bodo</option>
+			<option aria-label="Chhattisgarhi" value="hne">Chhattisgarhi</option>
+			<option aria-label="Chinese (Literary)" value="lzh">Chinese (Literary)</option>
+			<option aria-label="Corsican" value="co">Corsican</option>
+			<option aria-label="Dogri" value="doi">Dogri</option>
+			<option aria-label="English (United Kingdom)" value="en-GB">English (United Kingdom)</option>
+			<option aria-label="Esperanto" value="epo">Esperanto</option>
+			<option aria-label="Frisian" value="fy">Frisian</option>
+			<option aria-label="Friulian" value="fur">Friulian</option>
+			<option aria-label="Ganda" value="lug">Ganda</option>
+			<option aria-label="Hiligaynon" value="hil">Hiligaynon</option>
+			<option aria-label="Iban" value="iba">Iban</option>
+			<option aria-label="Ilocano" value="ilo">Ilocano</option>
+			<option aria-label="Inuinnaqtun" value="ikt">Inuinnaqtun</option>
+			<option aria-label="Inuktitut (Latin)" value="iu-Latn">Inuktitut (Latin)</option>
+			<option aria-label="Jamaican Patois" value="jam">Jamaican Patois</option>
+			<option aria-label="Javanese" value="jav">Javanese</option>
+			<option aria-label="Kabuverdianu" value="kea">Kabuverdianu</option>
+			<option aria-label="Kapampangan" value="pam">Kapampangan</option>
+			<option aria-label="Kashmiri" value="ks">Kashmiri</option>
+			<option aria-label="Konkani" value="gom">Konkani</option>
+			<option aria-label="Krio" value="kri">Krio</option>
+			<option aria-label="Latin" value="la">Latin</option>
+			<option aria-label="Ligurian (Genoese)" value="lij">Ligurian (Genoese)</option>
+			<option aria-label="Limburgish" value="lim">Limburgish</option>
+			<option aria-label="Lombard" value="lmo">Lombard</option>
+			<option aria-label="Marwari" value="mwr">Marwari</option>
+			<option aria-label="Mauritian Creole" value="mfe">Mauritian Creole</option>
+			<option aria-label="Minangkabau (Latin)" value="min">Minangkabau (Latin)</option>
+			<option aria-label="Mongolian (Cyrillic)" value="mn-Cyrl">Mongolian (Cyrillic)</option>
+			<option aria-label="Mongolian (Traditional)" value="mn-Mong">Mongolian (Traditional)</option>
+			<option aria-label="Norwegian Nynorsk" value="nno">Norwegian Nynorsk</option>
+			<option aria-label="Nyanja" value="nya">Nyanja</option>
+			<option aria-label="Papiamento" value="pap">Papiamento</option>
+			<option aria-label="Punjabi (Shahmukhi)" value="pnb">Punjabi (Shahmukhi)</option>
+			<option aria-label="Rundi" value="run">Rundi</option>
+			<option aria-label="Sanskrit" value="sa">Sanskrit</option>
+			<option aria-label="Sardinian" value="srd">Sardinian</option>
+			<option aria-label="Sesotho" value="st">Sesotho</option>
+			<option aria-label="Sesotho sa Leboa" value="nso">Sesotho sa Leboa</option>
+			<option aria-label="Setswana" value="tn">Setswana</option>
+			<option aria-label="Seychelles French Creole" value="crs">Seychelles French Creole</option>
+			<option aria-label="Sicilian" value="scn">Sicilian</option>
+			<option aria-label="Tajik" value="tgk">Tajik</option>
+			<option aria-label="Tetum" value="tet">Tetum</option>
+			<option aria-label="Tok Pisin" value="tpi">Tok Pisin</option>
+			<option aria-label="Venetian" value="vec">Venetian</option>
+			<option aria-label="Waray" value="war">Waray</option>
+			<option aria-label="Yiddish (Eastern)" value="ydd">Yiddish (Eastern)</option>
+			<option aria-label="上索布语" value="hsb">上索布语</option>
+			<option aria-label="下索布语" value="dsb">下索布语</option>
+			<option aria-label="中文 (简体)" value="zh-Hans">中文 (简体)</option>
+			<option aria-label="中文 (繁体)" value="zh-Hant">中文 (繁体)</option>
+			<option aria-label="丹麦语" value="da">丹麦语</option>
+			<option aria-label="乌克兰语" value="uk">乌克兰语</option>
+			<option aria-label="乌兹别克语" value="uz">乌兹别克语</option>
+			<option aria-label="乌尔都语" value="ur">乌尔都语</option>
+			<option aria-label="书面挪威语" value="nb">书面挪威语</option>
+			<option aria-label="亚美尼亚语" value="hy">亚美尼亚语</option>
+			<option aria-label="伊博语" value="ig">伊博语</option>
+			<option aria-label="俄语" value="ru">俄语</option>
+			<option aria-label="保加利亚语" value="bg">保加利亚语</option>
+			<option aria-label="信德语" value="sd">信德语</option>
+			<option aria-label="僧伽罗语" value="si">僧伽罗语</option>
+			<option aria-label="克林贡语 (拉丁文)" value="tlh-Latn">克林贡语 (拉丁文)</option>
+			<option aria-label="克罗地亚语" value="hr">克罗地亚语</option>
+			<option aria-label="克雷塔罗奥托米语" value="otq">克雷塔罗奥托米语</option>
+			<option aria-label="冰岛语" value="is">冰岛语</option>
+			<option aria-label="加利西亚语" value="gl">加利西亚语</option>
+			<option aria-label="加泰罗尼亚语" value="ca">加泰罗尼亚语</option>
+			<option aria-label="匈牙利语" value="hu">匈牙利语</option>
+			<option aria-label="南非荷兰语" value="af">南非荷兰语</option>
+			<option aria-label="卡纳达语" value="kn">卡纳达语</option>
+			<option aria-label="卢旺达语" value="rw">卢旺达语</option>
+			<option aria-label="卢森堡语" value="lb">卢森堡语</option>
+			<option aria-label="印地语" value="hi">印地语</option>
+			<option aria-label="印度尼西亚语" value="id">印度尼西亚语</option>
+			<option aria-label="古吉拉特语" value="gu">古吉拉特语</option>
+			<option aria-label="哈萨克语" value="kk">哈萨克语</option>
+			<option aria-label="因纽特语" value="iu">因纽特语</option>
+			<option aria-label="土库曼语" value="tk">土库曼语</option>
+			<option aria-label="土耳其语" value="tr">土耳其语</option>
+			<option aria-label="塔希提语" value="ty">塔希提语</option>
+			<option aria-label="塞尔维亚语 (拉丁文)" value="sr-Latn">塞尔维亚语 (拉丁文)</option>
+			<option aria-label="塞尔维亚语 (西里尔文)" value="sr-Cyrl">塞尔维亚语 (西里尔文)</option>
+			<option aria-label="奥克语" value="oc">奥克语</option>
+			<option aria-label="奥里亚语" value="or">奥里亚语</option>
+			<option aria-label="威尔士语" value="cy">威尔士语</option>
+			<option aria-label="孟加拉语" value="bn">孟加拉语</option>
+			<option aria-label="宿务语" value="ceb">宿务语</option>
+			<option aria-label="尤卡特克玛雅语" value="yua">尤卡特克玛雅语</option>
+			<option aria-label="尼泊尔语" value="ne">尼泊尔语</option>
+			<option aria-label="巴什基尔语" value="ba">巴什基尔语</option>
+			<option aria-label="巴斯克语" value="eu">巴斯克语</option>
+			<option aria-label="巽他语" value="su">巽他语</option>
+			<option aria-label="希伯来语" value="he">希伯来语</option>
+			<option aria-label="希腊语" value="el">希腊语</option>
+			<option aria-label="库尔德语 (中)" value="ku">库尔德语 (中)</option>
+			<option aria-label="库尔德语 (北)" value="kmr">库尔德语 (北)</option>
+			<option aria-label="德语" value="de">德语</option>
+			<option aria-label="意大利语" value="it">意大利语</option>
+			<option aria-label="拉脱维亚语" value="lv">拉脱维亚语</option>
+			<option aria-label="捷克语" value="cs">捷克语</option>
+			<option aria-label="提格利尼亚语" value="ti">提格利尼亚语</option>
+			<option aria-label="斐济语" value="fj">斐济语</option>
+			<option aria-label="斯洛伐克语" value="sk">斯洛伐克语</option>
+			<option aria-label="斯洛文尼亚语" value="sl">斯洛文尼亚语</option>
+			<option aria-label="斯瓦希里语" value="sw">斯瓦希里语</option>
+			<option aria-label="旁遮普语" value="pa">旁遮普语</option>
+			<option aria-label="日语" value="ja">日语</option>
+			<option aria-label="普什图语" value="ps">普什图语</option>
+			<option aria-label="林加拉语" value="ln">林加拉语</option>
+			<option aria-label="柯尔克孜语" value="ky">柯尔克孜语</option>
+			<option aria-label="格鲁吉亚语" value="ka">格鲁吉亚语</option>
+			<option aria-label="毛利语" value="mi">毛利语</option>
+			<option aria-label="汤加语" value="to">汤加语</option>
+			<option aria-label="法罗语" value="fo">法罗语</option>
+			<option aria-label="法语" value="fr">法语</option>
+			<option aria-label="法语 (加拿大)" value="fr-CA">法语 (加拿大)</option>
+			<option aria-label="波兰语" value="pl">波兰语</option>
+			<option aria-label="波斯尼亚语" value="bs">波斯尼亚语</option>
+			<option aria-label="波斯语" value="fa">波斯语</option>
+			<option aria-label="泰卢固语" value="te">泰卢固语</option>
+			<option aria-label="泰米尔语" value="ta">泰米尔语</option>
+			<option aria-label="泰语" value="th">泰语</option>
+			<option aria-label="海地克里奥尔语" value="ht">海地克里奥尔语</option>
+			<option aria-label="爱尔兰语" value="ga">爱尔兰语</option>
+			<option aria-label="爱沙尼亚语" value="et">爱沙尼亚语</option>
+			<option aria-label="瑞典语" value="sv">瑞典语</option>
+			<option aria-label="白俄罗斯语" value="be">白俄罗斯语</option>
+			<option aria-label="祖鲁语" value="zu">祖鲁语</option>
+			<option aria-label="科萨语" value="xh">科萨语</option>
+			<option aria-label="立陶宛语" value="lt">立陶宛语</option>
+			<option aria-label="粤语 (繁体)" value="yue">粤语 (繁体)</option>
+			<option aria-label="索马里语" value="so">索马里语</option>
+			<option aria-label="约鲁巴语" value="yo">约鲁巴语</option>
+			<option aria-label="绍纳语" value="sn">绍纳语</option>
+			<option aria-label="维吾尔语" value="ug">维吾尔语</option>
+			<option aria-label="缅甸语" value="my">缅甸语</option>
+			<option aria-label="罗马尼亚语" value="ro">罗马尼亚语</option>
+			<option aria-label="老挝语" value="lo">老挝语</option>
+			<option aria-label="芬兰语" value="fi">芬兰语</option>
+			<option aria-label="苗语" value="mww">苗语</option>
+			<option aria-label="英语" value="en">英语</option>
+			<option aria-label="荷兰语" value="nl">荷兰语</option>
+			<option aria-label="菲律宾语" value="fil">菲律宾语</option>
+			<option aria-label="萨摩亚语" value="sm">萨摩亚语</option>
+			<option aria-label="葡萄牙语 (巴西)" value="pt">葡萄牙语 (巴西)</option>
+			<option aria-label="葡萄牙语 (葡萄牙)" value="pt-PT">葡萄牙语 (葡萄牙)</option>
+			<option aria-label="藏语" value="bo">藏语</option>
+			<option aria-label="西班牙语" value="es">西班牙语</option>
+			<option aria-label="豪萨语" value="ha">豪萨语</option>
+			<option aria-label="越南语" value="vi">越南语</option>
+			<option aria-label="达里语" value="prs">达里语</option>
+			<option aria-label="迈蒂利语" value="mai">迈蒂利语</option>
+			<option aria-label="迪维希语" value="dv">迪维希语</option>
+			<option aria-label="阿塞拜疆语" value="az">阿塞拜疆语</option>
+			<option aria-label="阿姆哈拉语" value="am">阿姆哈拉语</option>
+			<option aria-label="阿尔巴尼亚语" value="sq">阿尔巴尼亚语</option>
+			<option aria-label="阿拉伯语" value="ar">阿拉伯语</option>
+			<option aria-label="阿拉伯语（埃及语）" value="arz">阿拉伯语（埃及语）</option>
+			<option aria-label="阿萨姆语" value="as">阿萨姆语</option>
+			<option aria-label="鞑靼语" value="tt">鞑靼语</option>
+			<option aria-label="韩语" value="ko">韩语</option>
+			<option aria-label="马其顿语" value="mk">马其顿语</option>
+			<option aria-label="马拉加斯语" value="mg">马拉加斯语</option>
+			<option aria-label="马拉地语" value="mr">马拉地语</option>
+			<option aria-label="马拉雅拉姆语" value="ml">马拉雅拉姆语</option>
+			<option aria-label="马来语" value="ms">马来语</option>
+			<option aria-label="马耳他语" value="mt">马耳他语</option>
+			<option aria-label="高棉语" value="km">高棉语</option>
+		</select>
+		<select title="选择翻译成的语言" name="to" class="to_lang_select">
+			<option aria-label="Arabic (Romanized)" value="arb">Arabic (Romanized)</option>
+			<option aria-label="Asturian" value="ast">Asturian</option>
+			<option aria-label="Balinese" value="ban">Balinese</option>
+			<option aria-label="Batak Toba" value="bbc">Batak Toba</option>
+			<option aria-label="Bhojpuri" value="bho">Bhojpuri</option>
+			<option aria-label="Bikol" value="bik">Bikol</option>
+			<option aria-label="Bodo" value="brx">Bodo</option>
+			<option aria-label="Chhattisgarhi" value="hne">Chhattisgarhi</option>
+			<option aria-label="Chinese (Literary)" value="lzh">Chinese (Literary)</option>
+			<option aria-label="Corsican" value="co">Corsican</option>
+			<option aria-label="Dogri" value="doi">Dogri</option>
+			<option aria-label="English (United Kingdom)" value="en-GB">English (United Kingdom)</option>
+			<option aria-label="Esperanto" value="epo">Esperanto</option>
+			<option aria-label="Frisian" value="fy">Frisian</option>
+			<option aria-label="Friulian" value="fur">Friulian</option>
+			<option aria-label="Ganda" value="lug">Ganda</option>
+			<option aria-label="Hiligaynon" value="hil">Hiligaynon</option>
+			<option aria-label="Iban" value="iba">Iban</option>
+			<option aria-label="Ilocano" value="ilo">Ilocano</option>
+			<option aria-label="Inuinnaqtun" value="ikt">Inuinnaqtun</option>
+			<option aria-label="Inuktitut (Latin)" value="iu-Latn">Inuktitut (Latin)</option>
+			<option aria-label="Jamaican Patois" value="jam">Jamaican Patois</option>
+			<option aria-label="Javanese" value="jav">Javanese</option>
+			<option aria-label="Kabuverdianu" value="kea">Kabuverdianu</option>
+			<option aria-label="Kapampangan" value="pam">Kapampangan</option>
+			<option aria-label="Kashmiri" value="ks">Kashmiri</option>
+			<option aria-label="Konkani" value="gom">Konkani</option>
+			<option aria-label="Krio" value="kri">Krio</option>
+			<option aria-label="Latin" value="la">Latin</option>
+			<option aria-label="Ligurian (Genoese)" value="lij">Ligurian (Genoese)</option>
+			<option aria-label="Limburgish" value="lim">Limburgish</option>
+			<option aria-label="Lombard" value="lmo">Lombard</option>
+			<option aria-label="Marwari" value="mwr">Marwari</option>
+			<option aria-label="Mauritian Creole" value="mfe">Mauritian Creole</option>
+			<option aria-label="Minangkabau (Latin)" value="min">Minangkabau (Latin)</option>
+			<option aria-label="Mongolian (Cyrillic)" value="mn-Cyrl">Mongolian (Cyrillic)</option>
+			<option aria-label="Mongolian (Traditional)" value="mn-Mong">Mongolian (Traditional)</option>
+			<option aria-label="Norwegian Nynorsk" value="nno">Norwegian Nynorsk</option>
+			<option aria-label="Nyanja" value="nya">Nyanja</option>
+			<option aria-label="Papiamento" value="pap">Papiamento</option>
+			<option aria-label="Punjabi (Shahmukhi)" value="pnb">Punjabi (Shahmukhi)</option>
+			<option aria-label="Rundi" value="run">Rundi</option>
+			<option aria-label="Sanskrit" value="sa">Sanskrit</option>
+			<option aria-label="Sardinian" value="srd">Sardinian</option>
+			<option aria-label="Sesotho" value="st">Sesotho</option>
+			<option aria-label="Sesotho sa Leboa" value="nso">Sesotho sa Leboa</option>
+			<option aria-label="Setswana" value="tn">Setswana</option>
+			<option aria-label="Seychelles French Creole" value="crs">Seychelles French Creole</option>
+			<option aria-label="Sicilian" value="scn">Sicilian</option>
+			<option aria-label="Tajik" value="tgk">Tajik</option>
+			<option aria-label="Tetum" value="tet">Tetum</option>
+			<option aria-label="Tok Pisin" value="tpi">Tok Pisin</option>
+			<option aria-label="Venetian" value="vec">Venetian</option>
+			<option aria-label="Waray" value="war">Waray</option>
+			<option aria-label="Yiddish (Eastern)" value="ydd">Yiddish (Eastern)</option>
+			<option aria-label="上索布语" value="hsb">上索布语</option>
+			<option aria-label="下索布语" value="dsb">下索布语</option>
+			<option aria-label="中文 (简体)" value="zh-Hans" selected="selected">中文 (简体)</option>
+			<option aria-label="中文 (繁体)" value="zh-Hant">中文 (繁体)</option>
+			<option aria-label="丹麦语" value="da">丹麦语</option>
+			<option aria-label="乌克兰语" value="uk">乌克兰语</option>
+			<option aria-label="乌兹别克语" value="uz">乌兹别克语</option>
+			<option aria-label="乌尔都语" value="ur">乌尔都语</option>
+			<option aria-label="书面挪威语" value="nb">书面挪威语</option>
+			<option aria-label="亚美尼亚语" value="hy">亚美尼亚语</option>
+			<option aria-label="伊博语" value="ig">伊博语</option>
+			<option aria-label="俄语" value="ru">俄语</option>
+			<option aria-label="保加利亚语" value="bg">保加利亚语</option>
+			<option aria-label="信德语" value="sd">信德语</option>
+			<option aria-label="僧伽罗语" value="si">僧伽罗语</option>
+			<option aria-label="克林贡语 (拉丁文)" value="tlh-Latn">克林贡语 (拉丁文)</option>
+			<option aria-label="克罗地亚语" value="hr">克罗地亚语</option>
+			<option aria-label="克雷塔罗奥托米语" value="otq">克雷塔罗奥托米语</option>
+			<option aria-label="冰岛语" value="is">冰岛语</option>
+			<option aria-label="加利西亚语" value="gl">加利西亚语</option>
+			<option aria-label="加泰罗尼亚语" value="ca">加泰罗尼亚语</option>
+			<option aria-label="匈牙利语" value="hu">匈牙利语</option>
+			<option aria-label="南非荷兰语" value="af">南非荷兰语</option>
+			<option aria-label="卡纳达语" value="kn">卡纳达语</option>
+			<option aria-label="卢旺达语" value="rw">卢旺达语</option>
+			<option aria-label="卢森堡语" value="lb">卢森堡语</option>
+			<option aria-label="印地语" value="hi">印地语</option>
+			<option aria-label="印度尼西亚语" value="id">印度尼西亚语</option>
+			<option aria-label="古吉拉特语" value="gu">古吉拉特语</option>
+			<option aria-label="哈萨克语" value="kk">哈萨克语</option>
+			<option aria-label="因纽特语" value="iu">因纽特语</option>
+			<option aria-label="土库曼语" value="tk">土库曼语</option>
+			<option aria-label="土耳其语" value="tr">土耳其语</option>
+			<option aria-label="塔希提语" value="ty">塔希提语</option>
+			<option aria-label="塞尔维亚语 (拉丁文)" value="sr-Latn">塞尔维亚语 (拉丁文)</option>
+			<option aria-label="塞尔维亚语 (西里尔文)" value="sr-Cyrl">塞尔维亚语 (西里尔文)</option>
+			<option aria-label="奥克语" value="oc">奥克语</option>
+			<option aria-label="奥里亚语" value="or">奥里亚语</option>
+			<option aria-label="威尔士语" value="cy">威尔士语</option>
+			<option aria-label="孟加拉语" value="bn">孟加拉语</option>
+			<option aria-label="宿务语" value="ceb">宿务语</option>
+			<option aria-label="尤卡特克玛雅语" value="yua">尤卡特克玛雅语</option>
+			<option aria-label="尼泊尔语" value="ne">尼泊尔语</option>
+			<option aria-label="巴什基尔语" value="ba">巴什基尔语</option>
+			<option aria-label="巴斯克语" value="eu">巴斯克语</option>
+			<option aria-label="巽他语" value="su">巽他语</option>
+			<option aria-label="希伯来语" value="he">希伯来语</option>
+			<option aria-label="希腊语" value="el">希腊语</option>
+			<option aria-label="库尔德语 (中)" value="ku">库尔德语 (中)</option>
+			<option aria-label="库尔德语 (北)" value="kmr">库尔德语 (北)</option>
+			<option aria-label="德语" value="de">德语</option>
+			<option aria-label="意大利语" value="it">意大利语</option>
+			<option aria-label="拉脱维亚语" value="lv">拉脱维亚语</option>
+			<option aria-label="捷克语" value="cs">捷克语</option>
+			<option aria-label="提格利尼亚语" value="ti">提格利尼亚语</option>
+			<option aria-label="斐济语" value="fj">斐济语</option>
+			<option aria-label="斯洛伐克语" value="sk">斯洛伐克语</option>
+			<option aria-label="斯洛文尼亚语" value="sl">斯洛文尼亚语</option>
+			<option aria-label="斯瓦希里语" value="sw">斯瓦希里语</option>
+			<option aria-label="旁遮普语" value="pa">旁遮普语</option>
+			<option aria-label="日语" value="ja">日语</option>
+			<option aria-label="普什图语" value="ps">普什图语</option>
+			<option aria-label="林加拉语" value="ln">林加拉语</option>
+			<option aria-label="柯尔克孜语" value="ky">柯尔克孜语</option>
+			<option aria-label="格鲁吉亚语" value="ka">格鲁吉亚语</option>
+			<option aria-label="毛利语" value="mi">毛利语</option>
+			<option aria-label="汤加语" value="to">汤加语</option>
+			<option aria-label="法罗语" value="fo">法罗语</option>
+			<option aria-label="法语" value="fr">法语</option>
+			<option aria-label="法语 (加拿大)" value="fr-CA">法语 (加拿大)</option>
+			<option aria-label="波兰语" value="pl">波兰语</option>
+			<option aria-label="波斯尼亚语" value="bs">波斯尼亚语</option>
+			<option aria-label="波斯语" value="fa">波斯语</option>
+			<option aria-label="泰卢固语" value="te">泰卢固语</option>
+			<option aria-label="泰米尔语" value="ta">泰米尔语</option>
+			<option aria-label="泰语" value="th">泰语</option>
+			<option aria-label="海地克里奥尔语" value="ht">海地克里奥尔语</option>
+			<option aria-label="爱尔兰语" value="ga">爱尔兰语</option>
+			<option aria-label="爱沙尼亚语" value="et">爱沙尼亚语</option>
+			<option aria-label="瑞典语" value="sv">瑞典语</option>
+			<option aria-label="白俄罗斯语" value="be">白俄罗斯语</option>
+			<option aria-label="祖鲁语" value="zu">祖鲁语</option>
+			<option aria-label="科萨语" value="xh">科萨语</option>
+			<option aria-label="立陶宛语" value="lt">立陶宛语</option>
+			<option aria-label="粤语 (繁体)" value="yue">粤语 (繁体)</option>
+			<option aria-label="索马里语" value="so">索马里语</option>
+			<option aria-label="约鲁巴语" value="yo">约鲁巴语</option>
+			<option aria-label="绍纳语" value="sn">绍纳语</option>
+			<option aria-label="维吾尔语" value="ug">维吾尔语</option>
+			<option aria-label="缅甸语" value="my">缅甸语</option>
+			<option aria-label="罗马尼亚语" value="ro">罗马尼亚语</option>
+			<option aria-label="老挝语" value="lo">老挝语</option>
+			<option aria-label="芬兰语" value="fi">芬兰语</option>
+			<option aria-label="苗语" value="mww">苗语</option>
+			<option aria-label="英语" value="en">英语</option>
+			<option aria-label="荷兰语" value="nl">荷兰语</option>
+			<option aria-label="菲律宾语" value="fil">菲律宾语</option>
+			<option aria-label="萨摩亚语" value="sm">萨摩亚语</option>
+			<option aria-label="葡萄牙语 (巴西)" value="pt">葡萄牙语 (巴西)</option>
+			<option aria-label="葡萄牙语 (葡萄牙)" value="pt-PT">葡萄牙语 (葡萄牙)</option>
+			<option aria-label="藏语" value="bo">藏语</option>
+			<option aria-label="西班牙语" value="es">西班牙语</option>
+			<option aria-label="豪萨语" value="ha">豪萨语</option>
+			<option aria-label="越南语" value="vi">越南语</option>
+			<option aria-label="达里语" value="prs">达里语</option>
+			<option aria-label="迈蒂利语" value="mai">迈蒂利语</option>
+			<option aria-label="迪维希语" value="dv">迪维希语</option>
+			<option aria-label="阿塞拜疆语" value="az">阿塞拜疆语</option>
+			<option aria-label="阿姆哈拉语" value="am">阿姆哈拉语</option>
+			<option aria-label="阿尔巴尼亚语" value="sq">阿尔巴尼亚语</option>
+			<option aria-label="阿拉伯语" value="ar">阿拉伯语</option>
+			<option aria-label="阿拉伯语（埃及语）" value="arz">阿拉伯语（埃及语）</option>
+			<option aria-label="阿萨姆语" value="as">阿萨姆语</option>
+			<option aria-label="鞑靼语" value="tt">鞑靼语</option>
+			<option aria-label="韩语" value="ko">韩语</option>
+			<option aria-label="马其顿语" value="mk">马其顿语</option>
+			<option aria-label="马拉加斯语" value="mg">马拉加斯语</option>
+			<option aria-label="马拉地语" value="mr">马拉地语</option>
+			<option aria-label="马拉雅拉姆语" value="ml">马拉雅拉姆语</option>
+			<option aria-label="马来语" value="ms">马来语</option>
+			<option aria-label="马耳他语" value="mt">马耳他语</option>
+			<option aria-label="高棉语" value="km">高棉语</option>
+		</select>
+		<br>
+		翻译的文本
+		<br>
+		<div class="input_text_box">
+			<textarea placeholder="请输入需翻译的文本（不支持换行符）" name="text" class="input_text" id="input_text" required></textarea>
+		</div>
+		<br>
+		<input type="submit" value="开始翻译" class="to_tranlate" onclick="translate_tip()">
+		<div class="translate_tip" id="translate_tip">
+			请稍等一会儿，即可看到翻译结果（若没有，请点击按钮再试）
+		</div>
+	</form>
+	<div class="decription">
+		为什么使用智慧翻译：
+		<div class="decription_p">1. 完全免费，任意使用而无需付任何一分钱</div>
+		<div class="decription_p">2. 无广告，随意使用而不受广告打扰心情</div>
+		<div class="decription_p">3. 不限制长度，翻译文本长度仅取决于翻译引擎设置</div>
+		<div class="decription_p">4. 无次数限制，你可以随意翻译而不用担心次数用完</div>
+	</div>
+	<script>
+		const input_text = document.getElementById('input_text')
+		const translate_tip_dm = document.getElementById('translate_tip')
+		const textareas = document.querySelectorAll('.input_text');
+textareas.forEach(item => {
+			let isComposing = false;
+			function setAutoHeight(el) {
+				el.style.height = '30px';
+				const contentHeight = el.scrollHeight;
+				el.style.height = contentHeight > 300 ? '300px' : contentHeight + 'px';
+				translate_tip_dm.style.display = 'none'
+			}
+			item.addEventListener('input', () => {
+				if (!isComposing) {
+					setAutoHeight(item);
+				}
+			});
+			item.addEventListener('compositionstart', () => {
+				isComposing = true;
+			});
+			item.addEventListener('compositionend', () => {
+				isComposing = false;
+				setAutoHeight(item);
+			});
+			item.addEventListener('paste', () => {
+				setTimeout(() => setAutoHeight(item), 10);
+			});
+			item.addEventListener('blur', () => {
+				const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+				window.scrollTo(0, scrollTop);
+			});
+			setAutoHeight(item);
+		});
+		function translate_tip() {
+			if (input_text.value.trim() != '') {
+				translate_tip_dm.style.color = '#0f0'
+				translate_tip_dm.innerHTML = '请稍等一会儿，即可看到翻译结果（若没有，请点击按钮再试）'
+				translate_tip_dm.style.display = 'block'
+			} else {
+				translate_tip_dm.style.color = 'red'
+				translate_tip_dm.innerHTML = '请输入需要翻译文本才能开始翻译！'
+				translate_tip_dm.style.display = 'block'
+				if (input_text.value != '') {
+					let input_text_temp_value = input_text.value
+					input_text.value = ''
+					setTimeout(() => {
+						input_text.value = input_text_temp_value
+					}, 1)
+				}
+			}
+		}
+	</script>
+</body>
+
+</html>
