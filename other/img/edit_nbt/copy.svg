@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+	width="10"
+	height="12">
+	<path
+		d="M0.5,0.5 l7,0"
+		stroke-width="1"
+		stroke-linecap="round"
+		fill="none"
+		stroke="aqua" />
+	<path
+		d="M0.5,9.5 l0,-9"
+		stroke-width="1"
+		stroke-linecap="round"
+		fill="none"
+		stroke="aqua" />
+	<rect
+		x="2.5"
+		y="2.5"
+		fill="purple"
+		width="7"
+		height="9"
+		stroke="aqua"
+		stroke-width="1"
+		rx="0.5"
+		ry="0.5" />
+</svg>
