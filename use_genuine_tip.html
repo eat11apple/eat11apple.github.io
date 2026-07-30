@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="color-scheme" content="dark">
+	<title>Please use genuine applications</title>
+	<style>
+		body {
+			background-color: #333;
+			color: #bbb;
+			text-align: center;
+			display: flex;
+			justify-items: center;
+			justify-content: center;
+			flex-direction: column;
+			align-items: center;
+		}
+		@media (orientation:portrait) {
+			body {
+				font-size: 150%;
+			}
+		}
+		@media (orientation:landscape) {
+			body {
+				font-size: 200%;
+			}
+		}
+		#n {
+			top: 50vh;
+			position: relative;
+			transform: translateY(-50%);
+		}
+	</style>
+	<script>
+		document.title = navigator.language.startsWith('zh') ? "请使用正版应用" : "Please use genuine applications";
+	</script>
+</head>
+
+<body>
+	<div id="n">The application you are using has been modified, please use the genuine application<br><br>Author: <a href="https://github.com/eat11apple">Github - eat11apple</a></div>
+	<script>
+		document.getElementById("n").innerHTML = navigator.language.startsWith('zh') ? '您使用的应用被修改，请使用正版应用<br><br>作者: <a href="https://github.com/eat11apple">Github - eat11apple</a>' : 'The application you are using has been modified, please use the genuine application<br><br>Author: <a href="https://github.com/eat11apple">Github - eat11apple</a>'
+	</script>
+</body>
+
+</html>
